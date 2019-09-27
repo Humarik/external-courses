@@ -4,7 +4,6 @@ function checkPrime(number) {
     if (number > 1000 || number < 2) {
         return 'Данные неверны';
     }
-
     for (let i = 1; i <= number; i++) {
         if (number % i === 0 || number === 2) {
             if (i <= number) {
@@ -12,7 +11,6 @@ function checkPrime(number) {
             }
         }
     }
-
     if (count > 2) {
         result = 'Число ' + number + ' - составное число';
     } else if (count === 2) {
