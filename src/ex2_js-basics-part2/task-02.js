@@ -1,7 +1,7 @@
-function parseArray(arr) {
-    for (var i = 0; i < arr.length; i++) {
-        console.log(arr[i]);
+function parseArray(array) {
+    for (let i = 0; i < array.length; i++) {
+        console.log(array[i]);
     }
-    console.log(arr.length);
+    console.log(array.length);
 }
 module.exports = parseArray;
