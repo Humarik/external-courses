@@ -1,6 +1,5 @@
-function checking(array) {
-    let x = 0;
-    let isSameNumber = false;
+function checkElements(array) {
+    let x = 0, isSameNumber = false;
     for (let i = 1; i < array.length; i++){
         if (array[x] === array[i]){
             isSameNumber = true;
@@ -13,4 +12,4 @@ function checking(array) {
     }
     return isSameNumber;
 }
-module.exports = checking;
+module.exports = checkElements;
