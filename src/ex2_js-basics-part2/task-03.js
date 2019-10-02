@@ -1,18 +1,16 @@
-function counter(array) {
-    let resultArray = [];
+function counterNumbers(array) {
     let even = 0, odd = 0, zero = 0;
     for (let i = 0; i < array.length; i++) {
         if (typeof array[i] === 'number' && !isNaN(array[i]) && array[i] !== 0) {
             if (array[i] % 2 === 0) {
                 even++;
-            } else if (array[i] % 2 !== 0 && array[i] !== 0) {
+            } else {
                 odd++;
             }
         } else if (array[i] === 0) {
             zero++;
         }
-    }
-    resultArray.push(even, odd, zero);
-    return resultArray;
+    }      
+    return [even, odd, zero];
 }
-module.exports = counter;
+module.exports = counterNumbers;

@@ -1,6 +1,5 @@
 function checkPrime(number) {
-    let count = 0;
-    let result = '';
+    let count = 0, result = '';
     if (number > 1000 || number < 2) {
         return 'Данные неверны';
     }
