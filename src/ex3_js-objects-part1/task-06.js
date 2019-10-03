@@ -5,7 +5,7 @@ function deepCopyObj(data) {
             if (data[key] instanceof Array){
                 copyObj[key] = [];
                 for (let i = 0; i < data[key].length;i++){
-                    copyObj[key].push((data[key][i]));
+                    copyObj[key].push((deepCopyObj(data[key][i])));
                 }
             }else{
                 copyObj[key] = deepCopyObj(data[key]);
