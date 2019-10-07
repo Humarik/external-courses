@@ -1,11 +1,5 @@
 function checkObj(str, obj) {
-    const thatObj = obj;
-    switch (str in thatObj) {
-        case false :
-            thatObj[str] = 'new';
-        break;
-        default:
-    }
-    return thatObj;
+    const thatObject = obj;
+    return str in thatObject ? true : (thatObject[str] = 'new');
 }
 module.exports = checkObj;

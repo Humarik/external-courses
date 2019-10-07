@@ -1,7 +1,4 @@
 function checkObj(str, obj) {
-    if(str in obj){
-        return true
-    }
-    return false;
+    return str in obj ? true : false;
 }
 module.exports = checkObj;
