@@ -1,8 +1,4 @@
-
 function findProp(prop, obj) {
-    if (!obj.hasOwnProperty(prop)) {
-        return obj[prop];
-    }
-    return undefined;
+    return !obj.hasOwnProperty(prop) ? obj[prop] : undefined;
 }
 module.exports = findProp;

@@ -1,5 +1,5 @@
 function crateObj(){
-    const newObj = Object.create(null);
-    return newObj;
+    return Object.create(null);
+
 }
 module.exports = crateObj;

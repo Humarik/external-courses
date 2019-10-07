@@ -1,7 +1,4 @@
 function findSameString(firstStr,secondStr){
-    if (firstStr.indexOf(secondStr) !== -1) {
-        return true;
-    }
-    return false;
+    return firstStr.indexOf(secondStr) !== -1 ? true : false;
 }
 module.exports = findSameString;

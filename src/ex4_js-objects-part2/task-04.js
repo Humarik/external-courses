@@ -1,5 +1,4 @@
 function changeLetter(str){
-    const string = str[0].toUpperCase() + str.slice(1);
-    return string;
+    return str[0].toUpperCase() + str.slice(1);
 }
 module.exports = changeLetter;

@@ -1,5 +1,4 @@
 function deleteSpace(str){
-    const string = str.trim();
-    return string;
+    return str.trim();
 }
 module.exports = deleteSpace;
