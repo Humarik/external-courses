@@ -1,0 +1,52 @@
+body{
+    padding: 0;
+    margin: 0;
+}
+
+ul,ol{
+    text-align: left;
+}
+
+li{
+    margin: 0 auto;
+    width: 5em;
+}
+
+table {
+    width: 300px;
+    margin: auto;
+}
+
+td {
+    text-align: center;
+}
+
+.ubordered-list li{
+    width: 3em;
+}
+
+.wrapper-container{
+    border: 1px solid black;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.container{
+    margin-top: 10px;
+}
+
+.containers{
+    margin: 0 auto;
+    text-align: center;
+    width: 50%;
+}
+
+#green-div{
+    padding: 5px;
+    background-image: url('https://look.com.ua/pic/201405/1920x1200/look.com.ua-101766.jpg');
+}
+
+.little-box{
+  font-family: 'Lato', sans-serif;  
+}

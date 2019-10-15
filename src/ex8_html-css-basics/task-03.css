@@ -1,0 +1,29 @@
+div{
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+#box-1{
+    border: 1px solid black;
+    box-sizing: border-box;
+}
+
+#box-2{
+    background: green;
+    outline: 1px solid black;
+    border: 5px solid white; 
+}
+
+#box-3{
+    box-shadow: 0 0 0 2px black;
+}
+
+#box-4{
+    border: 5px double black; 
+}
+
+#box-5{
+    border: 5px dotted black; 
+}
