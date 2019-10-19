@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="form.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="form-wrapper">
+        <h2 id="title">Form Here</h2>
+        <p id="requir">* required fields </p>
+        <form action="url" method="post" class='form container'>
+            <div class="div-requir">
+                <label>Name: </label>
+                <input class="input" type="text" id="name" placeholder="placeholder text">
+            </div>
+            <div class="div-requir">
+                <label>Email: </label>
+                <input class="input" type="email" id="email" placeholder="placeholder text" required>
+                <div class="figure">
+                    <p>Form field hint</p>
+                </div>
+            </div>
+            <div class="div-requir">
+                <label>Website: </label>
+                <input class="input" type="url" id="website" placeholder="placeholder text" required>
+                <div class="figure">
+                    <p>Form field hint</p>
+                </div>
+            </div>
+            <div id="message">
+                <label>Message: </label>
+                <textarea id="text-area"></textarea>
+            </div>
+            <input class="submit" type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+</html>

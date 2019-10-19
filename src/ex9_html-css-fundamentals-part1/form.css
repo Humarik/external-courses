@@ -1,0 +1,79 @@
+.form-wrapper {
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+#title, #requir {
+    margin: 0px 0px 5px 0px;
+}
+
+#requir {
+    color:red;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    border-top: 2px solid black;
+    padding: 10px;
+}
+
+label {
+    min-width: 150px;
+    font-size: 20px;
+}
+
+form input, #text-area{
+    height: 28px;
+    border-radius: 5px;
+    border: 2px solid grey;
+    margin: 8px;
+}
+
+#text-area {
+    width: 200px;
+    height: 50px;
+}
+
+.submit {
+    width: 100px;
+    margin: 2em 0px 0px 5em;
+    background: white;
+}
+
+#message{
+    display: flex;
+    flex-direction: row;
+}
+input[placeholder] {
+    padding-left: 1em;
+    color: grey;
+}
+
+.div-requir {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.figure{
+    left: 10%;
+    position: relative;
+    width: 130px;
+    height: 30px;
+    background: #D45252;
+}
+.figure:after{
+    content: '';
+    border: 15px solid transparent;	border-right: 10px solid #D45252;
+    position: absolute;
+    left: -20px;
+}
+.figure p{
+    position: absolute;
+    left: 15px;
+    top: -10px;
+    color: white;
+}
+
+form input:required:valid + .figure {visibility: hidden}
