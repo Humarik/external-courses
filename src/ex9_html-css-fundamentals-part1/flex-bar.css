@@ -1,0 +1,28 @@
+body {
+  padding: 30px;
+}
+main {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+header {
+  flex-basis: 100%;
+  background: lightblue;
+}
+section {
+  flex: 2;
+  background: lightgreen; 
+}
+article {
+  background: white;
+  margin: 0 0 1rem 0;
+}
+aside {
+  flex: 1;
+  background: pink;
+}
+header, article, section, .module {
+  padding: 1rem;
+}
