@@ -1,0 +1,21 @@
+table{
+    text-align: left;
+}
+.container td{
+    color: #828b9c;
+    font-family: Arial;
+    padding: 20px 15px;
+    width: 120px; 
+}
+.name{
+    text-transform: capitalize
+}
+tr{
+    background: #f2f6fa;
+}
+tr:nth-child(odd){
+    background: #e3eaf3;
+}
+.container:hover{
+    background: #e2e5e9;
+}

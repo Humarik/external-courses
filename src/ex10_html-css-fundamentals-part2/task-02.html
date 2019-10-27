@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel='stylesheet' href='task-02.css'>
+    <title>Document</title>
+</head>
+<body>
+    <div class='form'>
+        <fieldset>
+            <legend>Personal data</legend>
+                <form action='http://httpbin.org/get' method='GET'>
+                    <div class='wrapper-input'>
+                        <div class='container-input'>
+                            <div class='label'><label>Surname: </label></div>
+                            <div class='input'><input type='text' name='Surname'></div>
+                        </div>
+                    </div>
+                    <div class='wrapper-input'>
+                        <div class='container-input'>
+                            <div class='label'><label>First name: </label></div>
+                            <div class='input'><input type='text' name='first-name'></div>
+                        </div>
+                    </div>
+                    <div class='wrapper-input'>
+                        <div class='container-input'>
+                            <div class='label'><label>Middle name: </label></div>
+                            <div class='input'><input type='text' name='middle-name'></div>
+                        </div>
+                    </div>
+                    <div class='wrapper-input'>
+                        <div class='container-input'>
+                            <div class='label'><label>You are: </label></div>
+                            <div class='input'>
+                                <label><input type='radio' name='you-are' value='male'> male</label>
+                                <label><input type='radio' name='you-are' value='female'> female</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='wrapper-input'>
+                        <div class='container-input'>
+                            <div class='label'><label>Age: </label></div>
+                            <div class='input'><input type='number' name='age' min='18' max='101'></div>
+                        </div>
+                    </div>
+                    <div class='wrapper-input'>
+                        <div class='container-input'>
+                            <div class='label'><label>Country of Residence: </label></div>
+                            <div class='input'>
+                                <select>
+                                    <option value='Russia'>Russia</option>
+                                    <option value='USA'>USA</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='wrapper-input'>
+                        <div class='container-input'>
+                            <div class='label'><label>City: </label></div>
+                            <div class='input'><label><input type='checkbox' name='checkbox'> Ryazan</label></div>
+                            <div class='input'><label><input type='checkbox' name='checkbox'> Moscow</label></div>
+                        </div>
+                    </div>
+                    <div class='wrapper-input'>
+                        <div class='container-input'>
+                            <div class='label'><label>Photography: </label></div>
+                            <div class='input'><input type='file' name='file'></div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class='wrapper-input'>
+                        <div class='container-input'>
+                            <div class='label'><label>Title: </label></div>
+                            <select class='select-title' size='8' multiple>
+                                <optgroup label='Tehnologies'>
+                                    <option>Web master</option>
+                                    <option>Database Administrator</option>
+                                    <option>Computer-aided design</option>
+                                </optgroup>
+                                <optgroup label='Finance'>
+                                    <option>Economic Planning</option>
+                                    <option>Management accounting</option>
+                                    <option>Budgeting and planning</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                    </div>
+                    <div class='wrapper-input'>
+                        <div class='container-input'>
+                            <div class='label'><label>Salary: </label></div>
+                            <div class='input'><input type='range' name='range' min='0' max='100' step='1' value='50'></div>
+                        </div>
+                    </div>
+                    <div class='wrapper-input'>
+                        <div class='container-input'>
+                            <textarea placeholder='Tell us about yourself...'></textarea>
+                        </div>
+                    </div>
+                    <fieldset>
+                        <legend>Contact information</legend>
+                            <div class='wrapper-input'>
+                                <div class='container-input'>
+                                    <div class='label'><label>Site: </label></div>
+                                    <div class='input'><input type='url' name='url'></div>
+                                </div>
+                            </div>
+                            <div class='wrapper-input'>
+                                <div class='container-input'>
+                                    <div class='label'><label>Email: </label></div>
+                                    <div class='input'><input type='email' name='email'></div>
+                                </div>
+                            </div>
+                            <div class='wrapper-input'>
+                                <div class='container-input'>
+                                    <div class='label'><label>Phone: </label></div>
+                                    <div class='input'><input type='tel' name='tel'></div>
+                                </div>
+                            </div>
+                    </fieldset>
+                    <div class='wrapper-input'>
+                        <div class='container-input'>
+                            <div class='label'><label>Password: </label></div>
+                            <div class='input'><input type='password' name='password' required></div>
+                        </div>
+                    </div>
+                    <div class='wrapper-input'>
+                        <div class='container-input'>
+                            <div class='input'><input value='Отправить' type='submit' name='submit'></div>
+                            <div class='input'><input value='Сбросить' type='reset' name='reset'></div>
+                        </div>
+                    </div>
+                </form>
+        </fieldset>
+    </div>
+</body>
+</html>
