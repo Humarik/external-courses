@@ -1,0 +1,25 @@
+.loader-wrapper{
+    padding: 5px;
+    margin: 0 auto;
+    width: 400px;
+    height: 40px;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+.loader{
+    width: 10px;
+    height: 40px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background: blue;
+    -webkit-animation: loading 4s linear infinite;
+}
+
+@keyframes loading{
+    from{
+        width: 10px;
+    }
+    to{
+        width: 400px;
+    }
+}

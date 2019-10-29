@@ -1,0 +1,44 @@
+.wrapper{
+    position: relative;
+    margin: 10px auto;
+    width: 500px;
+    height: 300px;
+    border: 1px solid black;
+}
+.container{
+    margin: 0 auto;
+    width: 500px;
+    height: 50px;
+    border: 1px solid black;
+}
+.bottom{
+    position: absolute;
+    bottom: 0;
+}
+.container-ball{
+    position: relative;
+    width: 500px;
+    height: 200px;
+}
+.ball{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 100px;
+    background: red;
+    border-radius: 50px;
+    -webkit-animation: moving 2s linear infinite;
+}
+
+@keyframes moving{
+    0%{
+        top: 48%;
+    }
+    50%{
+        top: 0;
+    }
+    100%{
+        top: 48%;
+    }
+}

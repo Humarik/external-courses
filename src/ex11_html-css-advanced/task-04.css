@@ -1,0 +1,211 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', normal;
+}
+.header-wrapper{
+    position: relative;
+    width: 100%;
+    height: 55px;
+    background: #0067A3;
+}
+.btn-menu-wrapper{
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    margin-top: -15px;
+    width: 45px;
+    height: 30px;
+    border: 0;
+}
+.btn-menu-container{
+    position: absolute;
+    width: 45px;
+    height: 30px;
+    background: #0067A3;
+    border: 0;
+    cursor: pointer;
+}
+/* circle */
+.menu-btn .circle::before,
+.menu-btn .circle::after,
+.menu-btn .circle{
+    position: absolute;
+    top: 50%;
+    left: 18%;
+    margin-left: -1.2px; 
+    margin-top: -2px; 
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    border: 1px solid white;
+    box-sizing: border-box;
+}
+
+.menu-btn .circle::before,
+.menu-btn .circle::after{
+    content: '';
+}
+
+.menu-btn .circle::before{
+    transform: translateY(-5px);
+}
+.menu-btn .circle::after{
+    transform: translateY(5px);
+}
+/* line */
+.menu-btn .line::before,
+.menu-btn .line::after,
+.menu-btn .line{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -1px;
+    margin-left: -10px;
+    width: 20px;
+    height: 2px;
+    background: white;
+}
+
+.menu-btn .line::before,
+.menu-btn .line::after{
+    content: '';
+}
+
+.menu-btn .line::before{
+    transform: translateY(-5px);
+}
+.menu-btn .line::after{
+    transform: translateY(5px);
+}
+/* title */
+.title-wrapper{
+    position: absolute;
+    width: 331px;
+    height: 33px;
+    left: 70px;
+    top: 50%;
+    margin-top: -16.5px;
+}
+.title{
+    font-weight: normal;
+    font-size: 28px;
+    line-height: 33px;
+    color: #FFFFFF;
+    margin: 0;
+}
+/* create-btn */
+.add{
+    position: absolute;
+    max-width: 181px;
+    height: 33px;
+    top: 50%;
+    margin-top: -16.5px;
+    right: 113px;
+}
+.add-btn{
+    width: 181px;
+    height: 33px;
+    background: url(btn-img.svg) no-repeat;
+    background-position: 5px;
+    padding-right: 15px;
+    text-align: right;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    background-color: white;
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+}
+/* user-container */
+.user-container-wrapper{
+    position: absolute;
+    right: 14px;
+    width: 70px;
+    height: 100%;
+}
+/* user btn */
+.user-btn-wrapper{
+    position: absolute;
+    top: 50%;
+    right: 0px;
+    margin-top: -7.5px;
+    width: 15px;
+    height: 15px;
+}
+.user-btn{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    cursor: pointer;
+    background: #0067A3;
+}
+.user-btn span::after,
+.user-btn span::before,
+.user-btn span{
+    position: absolute;
+    top: 40%;
+    left: 5%;
+    width: 8px;
+    height: 0px;
+    background: white;
+}
+.user-btn span::before{
+    content: '';
+    height: 2px;
+    transform: rotate(40deg);
+}
+.user-btn span::after{
+    content: '';
+    left: 5px;
+    height: 2px;
+    transform: rotate(-40deg);
+}
+
+/* avatar */
+.user-avatar-wrapper{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: 50%;
+    right: 45px;
+    margin: -20px;
+    border: 1px solid white;
+    border-radius: 50%;
+    background: white;
+}
+.user-avatar{
+    width: 40px;
+    height: 39px;
+}
+/* footer */
+.footer-wrapper{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 55px;
+    background: #0067A3;
+}
+.footer-wrapper .title{
+    font-size: 18px;
+    line-height: 21px;
+    color: #FFFFFF;
+    margin: 0;
+}
+.footer-title{
+    position: absolute;
+    top: 50%;
+    margin-top: -10px;
+}
+.active-tasks{
+    left: 138px;
+}
+.finished-tasks{
+    left: 315px;
+}
+.creator{
+    right: 25px;
+}
