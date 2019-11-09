@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='task.css'>
+    <title>Document</title>
+</head>
+<body>
+    <div class='huge-container'>
+        <div class='header-wrapper'>
+            <header class='header'>
+                <div class='btn-menu-wrapper'>
+                    <div class='btn-menu-container'>
+                        <button class='menu-btn'>
+                            <span class='circle'></span>
+                            <span class='line'></span>
+                        </button>
+                    </div>
+                </div>
+                <div class='title-wrapper'>
+                    <h1>Awesome Kanban Board</h1>
+                </div>
+                <div class='add-btn-wrapper'>
+                    <button class='add-btn'>Create new List</button>
+                </div>
+                <div class='user-container-wrapper'>
+                    <div class='user-btn-wrapper'>
+                        <div class='btn-container'>
+                            <button class='user-btn'>
+                                <span class='line-btn-off'></span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class='user-avatar-wrapper'>
+                        <div class='user-avatar-container'>
+                            <a class='user-avatar-link' href='#'><img class='user-avatar' src='kanban-img/avatar.svg'
+                                    alt='user-avatar'></a>
+                        </div>
+                    </div>
+                    <div class='menu-user-wrapper'>
+                        <nav class='menu-user-container'>
+                            <ul>
+                                <li class='item'>
+                                    <a href='#' class='link'>My account</a>
+                                </li>
+                                <li class='item'>
+                                    <a href='#' class='link'>My tasks</a>
+                                </li>
+                                <li class='item'>
+                                    <a href='#' class='link'>Log out</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+        </div>
+<div class='wrapper-main'>
+    <main class='main-container'>
+        <div class='wrapper backlog' id='backlog'>
+            <div class='title'>
+                <h3>Backlog</h3>
+            </div>
+            <div class='wrap'>
+                <div class='container'>
+                    <div class='box'></div>
+                    <div class='create-wrapper'>
+                        <input type='text' class='input-create' placeholder='Add card'>
+                    </div>
+                    <div class='wrap-btn'>
+                        <button class='btn' id='create-card-btn'> Add card</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class='wrapper ready' id='ready'>
+            <div class='title'>
+                <h3>Ready</h3>
+            </div>
+            <div class='wrap'>
+                <div class='container'>
+                    <div class='box'></div>
+                    <div class='drop-down-wrapper'>
+                        <nav class='drop-down'></nav>
+                    </div>
+                    <div class='wrap-btn'>
+                        <button class='btn'>Add card</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class='wrapper in-progress' id='in-progress'>
+            <div class='title'>
+                <h3>In progress</h3>
+            </div>
+            <div class='wrap'>
+                <div class='container'>
+                    <div class='box'></div>
+                    <div class='drop-down-wrapper'>
+                        <nav class='drop-down'></nav>
+                    </div>
+                    <div class='wrap-btn'>
+                        <button class='btn'>Add card</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class='wrapper finished' id='finished'>
+            <div class='title'>
+                <h3>Finished</h3>
+            </div>
+            <div class='wrap'>
+                <div class='container'>
+                    <div class='box'></div>
+                        <div class='drop-down-wrapper'>
+                            <nav class='drop-down'> </nav>
+                        </div>
+                    <div class='wrap-btn'>
+                        <button class='btn'>Add card</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+    <div class='footer-wrapper'>
+        <footer class='footer'>
+            <div class='footer-title active-tasks'>
+                <h2 class='title'>Active tasks: &lt; N &gt; </h2>
+            </div>
+            <div class='footer-title finished-tasks'>
+                <h2 class='title'>Finished tasks: &lt; M &gt; </h2>
+            </div>
+            <div class='footer-title creator'>
+                <h2 class='title'>Kanban board by Pavel, 2019</h2>
+            </div>
+        </footer>
+    </div>
+</div>
+    <script src='task-02.js'></script>
+    <script src='task.js'></script>
+</body>
+</html>
