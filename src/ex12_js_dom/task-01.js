@@ -1,7 +1,7 @@
 const array = ['asset/squirrel.jpg', 'asset/squirrel-first.jpg', 'asset/mount.jpg', 'asset/flowers.jpg', 'asset/field.jpg'];
-const firstImg = document.querySelector('.first-img');
+let firstImg = document.querySelector('.first-img');
 firstImg.setAttribute('src', array[0]);
-const secondImg = document.querySelector('.second-img');
+let secondImg = document.querySelector('.second-img');
 secondImg.setAttribute('src', array[1]);
 const imgBox = document.querySelector('#second-img-wrapper');
 const slider = document.querySelector('.slider-wrapper');
@@ -22,12 +22,22 @@ function counter(target) {
 
 function initImg(e) {
     if (e.target.id === 'next-btn' || e.target.id === 'prev-btn') {
-        firstImg.classList.add('opacity');
-        setTimeout(() => {
-            firstImg.setAttribute('src', array[next]);
-            secondImg.setAttribute('src', array[prev]);
-            firstImg.classList.remove('opacity');
-        }, 500);
+        firstImg.classList.remove('opacity');
+        let image = firstImg;
+        let newImage = image.cloneNode(false);
+        image.parentNode.replaceChild(newImage, image);
+        firstImg = newImage;
+
+        secondImg.classList.remove('opacity');
+        image = secondImg;
+        newImage = image.cloneNode(false);
+        image.parentNode.replaceChild(newImage, image);
+        secondImg = newImage;
+
         counter(e.target.id);
+        firstImg.classList.add('opacity');
+        secondImg.classList.add('opacity');
+        firstImg.setAttribute('src', array[next]);
+        secondImg.setAttribute('src', array[prev]);
     }
 }
