@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Sweets{
+            constructor(name){
+                this.name = name;
+            }
+        }
+
+        class Cookie extends Sweets{
+            constructor(name, weight){
+                super(name);
+                this.weight = weight;
+            }
+        }
+
+        class Candys extends Sweets{
+            constructor(name,weight){
+                super(name);
+                this.weight = weight;
+            }
+        }
+
+        const firstBox = new Cookie("Orio", 0.500);
+        const secondBox = new Cookie("Barney", 0.600);
+        const thirdBox = new Candys("Tofee", 0.500);
+
+        class Gift{
+            constructor(array){
+                this.gift = array;
+            }
+            getWeight(){
+            return this.gift.reduce((accumulator, currentValue) => {
+                return accumulator + currentValue.weight;
+                }, 0);
+            }
+            getSort(){
+                return this.gift.sort((a, b) => {
+                    if (a.weight > b.weight) {
+                        return -1;
+                    }
+                    return 0;
+                });
+            }
+            findSweets(value){
+                return this.gift.filter(element => {
+                    return element.name.includes(value);
+                });
+            }
+        }
+
+        const gift = new Gift([firstBox, secondBox, thirdBox]);
+        console.log(gift);
+        console.log(gift.getWeight());
+        console.log(gift.findSweets("Barney"));
+        console.log(gift.getSort());
+    </script>
+</body>
+</html>

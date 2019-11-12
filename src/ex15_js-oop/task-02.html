@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Appliance(name) {
+            this.name = name;
+        }
+        Appliance.prototype.counterEnergy = function (array) {
+            return array.reduce(function (acc, correntItem) {
+                return acc + correntItem.consumption;
+            }, 0);
+        };
+
+        function KitchenAppliance(name, isTurn, consumption) {
+            Appliance.apply(this, arguments);
+            this.isTurn = isTurn;
+            this.consumption = consumption;
+        }
+
+        function HallAppliance(name, isTurn, consumption) {
+            Appliance.apply(this, arguments);
+            this.isTurn = isTurn;
+            this.consumption = consumption;
+        }
+
+        function Room(array) {
+            this.appliances = array;
+        }
+
+        Room.prototype = Object.create(Appliance.prototype);
+        Room.prototype.constructor = Room;
+
+        Room.prototype.findAppliance = function (value) {
+            return this.appliances.filter(element => {
+                return element.name.includes(value);
+            });
+        };
+
+        const toaster = new KitchenAppliance("toaster", false, 100);
+        const tv = new HallAppliance("tv", true, 1000);
+        const room = new Room([toaster, tv]);
+        console.log(room.counterEnergy([toaster, tv]));
+        console.log(room.findAppliance("tv"));
+    </script>
+</body>
+</html>
