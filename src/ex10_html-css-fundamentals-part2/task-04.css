@@ -3,18 +3,12 @@ body{
     margin: 0;
     font-family: 'Open Sans', sans-serif;
 }
-.header-wrapper{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 247px;
-    margin-top: 56px;
-}
 .header-container{
     display: flex;
     justify-content: center;
     width: 100%;
     border-bottom: 1px solid #eceef4;
+    margin-top: 56px;
 }
 .header{
     position: relative;
@@ -27,13 +21,7 @@ body{
 .right-menu-wrapper{
     position: relative;
     display: none;
-}
-.right-menu-wrapper .line{
-    display: block;
-    width: 60px;
-    height: 10px;
-    background-color: #3687c4;
-    margin-bottom: 7px;
+    cursor: pointer;
 }
 .link {
     text-decoration: none;
@@ -78,22 +66,18 @@ body{
 .logo-text{
     position: absolute;
     left: 163px;
-    font-size: 41px;
+    font-size: 40px;
     font-weight: 400;
-    line-height: 34px;
+    line-height: 25px;
     color: #3687c4;
-}
-.contacts-wrapper{
-    display: flex;
-    width: 227px;
-    height: 100px;
 }
 .contacts-container{
     position: relative;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     justify-content: space-around;
-    width: 100%;
+    width: 227px;
+    height: 100px;
 }
 .contacts-container ul{
     display: flex;
@@ -123,7 +107,7 @@ body{
     text-align: center;
     line-height: 40px;
     z-index: 1;
-    top: 0;
+    top: -25px;
     left: 0;
     border: 2px solid #d4d4d5;
     border-radius: 5px;
@@ -138,7 +122,7 @@ body{
     border-right: 15px solid transparent;
     border-top: 15px solid #d4d4d5;
     position: absolute;
-    top: 40px;
+    top: 15px;
     left: 40px;
 }
 .mark:hover::before{
@@ -193,37 +177,34 @@ a:after {
 .menu li:hover a{
     color: #1faae2;
 }
-.menu-wrapper{
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    height: 84px;
-}
 .menu-container{
     display: flex;
     justify-content: space-between;
-    width: 1169px;
+    max-width: 1169px;
+    margin: 0 auto;
 }
 .menu{
     width: 800px;
 }
-.search-wrapper{
-    position: absolute;
-    right: 0;
-    bottom: -120px;
-    width: 229px;
+
+.search-wrapper-header{
+    display: none;
 }
+
 .search-container{
+    width: 229px;
     display: flex;
-    height: 100%;
+    width: 229px;
+    height: 83px;
     justify-content: space-around;
     align-items: center;
 }
-.search-brn{
+.search-btn{
     width: 25px;
     height: 25px;
     border: 0;
     background: url(img/loop.svg) no-repeat;
+    cursor: pointer;
 }
 .search-input{
     width: 150px;
@@ -244,7 +225,7 @@ a:after {
     background-repeat: no-repeat;
 }
 .container{
-    max-width: 1169px;
+    max-width: 1103px;
     padding-top: 240px;
     margin: 0 auto;
 }
@@ -252,7 +233,7 @@ a:after {
 .first-section-wrapper{
     height: 700px;
 }
-.first-section{
+.title-wrapper{
     position: relative;
     max-width: 900px;
     margin: 0px auto;
@@ -262,6 +243,7 @@ a:after {
 .first-title{
     position: relative;
     text-align: center;
+    max-width: 750px;
     margin: 0;
     text-shadow: 1px 1px 8px rgba(1, 1, 1, 0.15);
     color: #ffffff;
@@ -272,10 +254,10 @@ a:after {
 }
 .simbole{
     position: absolute;
-    top: 25px;
+    top: 0px;
     color: #bbedff;
     font-size: 100px;
-    padding-left: 20px;
+    padding-left: 60px;
     z-index: -1;
 }
 .second-title{
@@ -316,14 +298,18 @@ a:after {
     width: 100%;
     height: 100%;
     background: #f4f4f4;
+    cursor: pointer;
 }
 .next-img{
     position: absolute;
     top:50%;
     left:50%;
     transform:translate(-50%, -50%);
+    cursor: pointer;
 }
 .like-wrapper{
+    display: flex;
+    justify-content: center;
     position: absolute;
     bottom: 0;
     opacity: 0.7;
@@ -337,10 +323,6 @@ a:after {
     background: #feeb75;
 }
 .like-icon-wrapper{
-    position: absolute;
-    top:50%;
-    left:50%;
-    transform:translate(-50%, -50%);
     cursor: pointer;
 }
 .like-icon-wrapper:hover .like-text{
@@ -388,13 +370,11 @@ a:after {
 }
 
 @media (max-width: 1100px){
-    .menu-container, .contacts-wrapper{
+    .menu-container, .contacts-container{
         display: none;
     }
-    .search-wrapper{
-        position: static;
-        bottom: 0;
-        top: 0;
+    .search-wrapper-header{
+        display: block;
     }
     .right-menu-wrapper{
         display: block;
