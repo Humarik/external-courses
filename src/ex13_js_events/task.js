@@ -143,6 +143,7 @@ function initPlaceUl(id, containerDropDown){
 function showDropDown(e){
     const blockDropDown = e.currentTarget.querySelector('.drop-down-wrapper');
     const containerDropDown = e.currentTarget.querySelector('.drop-down');
+    const scrollDiv = e.currentTarget.querySelector('.wrap');
     const target = e.target;
     if (e.target.classList.contains('btn')) {
         blockDropDown.style.display = 'block';
@@ -150,6 +151,7 @@ function showDropDown(e){
         target.classList.toggle('btn');
         target.classList.toggle('btn-on');
         initPlaceUl(e.currentTarget.id, containerDropDown);
+        scrollDiv.scrollTop = scrollDiv.scrollHeight;
     } else if (e.target.classList.contains('btn-on')) {
         blockDropDown.style.display = 'none';
         target.innerHTML = 'Add card';
