@@ -1,4 +1,3 @@
-
 const backlog = document.querySelector('.backlog');
 const ready = document.querySelector('.ready');
 const inProgress = document.querySelector('.in-progress');
@@ -8,7 +7,6 @@ const backlogContainer = document.querySelector('.box');
 const blockInput = document.querySelector('.create-wrapper');
 const taskInput = document.querySelector('.input-create');
 
-const blockDropDown = document.querySelector('.drop-down-wrapper');
 const containerDropDown = document.querySelector('.drop-down');
 
 const dataMock = JSON.parse(localStorage.getItem('key')) || 
@@ -19,37 +17,55 @@ const dataMock = JSON.parse(localStorage.getItem('key')) ||
     { title: 'finished', issues: [] }
 ];
 
-checkTasks(dataMock);
+function checkDropDown (state){
+    let array = [backlog, ready, inProgress, finished];
+    for (let i = 0; i < array.length; i++){
+        if(array[i].querySelector('.btn-on')){
+            continue
+        }else{
+            array[i].querySelector('.btn').disabled = state;
+        }
+    }
+}
+
 function checkTasks(array){
-    array.some( (item) => {
+    array.forEach( (item) => {
         if (item.title === 'backlog'){
-            ready.querySelector('.btn').disabled = item.issues.length === 0 ? true : false;
+            ready.querySelector('.btn').disabled = item.issues.length === 0 
+            ? true : false;
         } else if (item.title === 'ready'){
-            inProgress.querySelector('.btn').disabled = item.issues.length === 0 ? true : false;
+            inProgress.querySelector('.btn').disabled = item.issues.length === 0 
+            ? true : false;
         } else if (item.title === 'in-progress'){
-            finished.querySelector('.btn').disabled = item.issues.length === 0 ? true : false;
+            finished.querySelector('.btn').disabled = item.issues.length === 0 
+            ? true : false;
         }
     })
 }
 
-
-backlog.addEventListener('click', showInput);
-inProgress.addEventListener('click', showDropDown);
-inProgress.addEventListener('click', initSwitchedCard);
-finished.addEventListener('click', showDropDown);
-finished.addEventListener('click', initSwitchedCard);
-ready.addEventListener('click', showDropDown);
-ready.addEventListener('click', initSwitchedCard);
-
+function getId(){
+    let newId = Math.random();
+    let isId = false;
+    for(let i = 0; i < dataMock.length; i++){
+        if (isId){
+           getId();
+        }else{
+            isId = dataMock[i].issues.some(item => {
+                return item.id == newId;
+            })
+        }
+    }
+    return newId;
+}
 
 function addCard(){
     if (taskInput.value){
         if (localStorage.getItem('key') === null){
-            dataMock[0].issues.push({ id: Math.random(), name: taskInput.value });
+            dataMock[0].issues.push({ id: getId(), name: taskInput.value });
             localStorage.setItem('key', JSON.stringify(dataMock));
             initCard(dataMock);
         }else{
-            dataMock[0].issues.push({ id: Math.random(), name: taskInput.value })
+            dataMock[0].issues.push({ id: getId(), name: taskInput.value })
             localStorage.setItem('key', JSON.stringify(dataMock));
             initCard(dataMock);
         }
@@ -65,11 +81,13 @@ function showInput(e){
         target.innerHTML = 'Save card';
         target.classList.toggle('btn');
         target.classList.toggle('btn-on');
+        checkDropDown(true);
     } else if (target.classList.contains('btn-on')){
         blockInput.style.display = 'none';
         target.innerHTML = 'Add card';
         target.classList.toggle('btn-on');
         target.classList.toggle('btn');
+        checkDropDown(false);
         addCard();
     }
 }
@@ -88,25 +106,14 @@ function createCard(item,parent){
         parentItem.appendChild(div);
     })
 }
-function initCard(array){
-    const readyBlock = ready.querySelector('.box');
-    const backlogBlock = backlog.querySelector('.box');
-    const progressBlock = inProgress.querySelector('.box');
-    const finishBlock = finished.querySelector('.box');
 
-    array.forEach(element => {
-        if (element.title === 'backlog'){
-            createCard(element.issues, backlogBlock);
-        } 
-        else if (element.title === 'ready'){
-            createCard(element.issues, readyBlock);
-        } else if (element.title === 'in-progress'){
-            createCard(element.issues, progressBlock);
-        }
-        else if (element.title === 'finished') {
-            createCard(element.issues, finishBlock);
-        }
-    });
+function getBlockByTitle(title){
+    const block = document.querySelector('.' + title).querySelector('.box');
+    return block;
+}
+
+function initCard(array){
+    array.forEach((element) => createCard(element.issues, getBlockByTitle( element.title )));
 }
 
 function createList(array, containerDropDown){
@@ -142,7 +149,6 @@ function initPlaceUl(id, containerDropDown){
 
 function showDropDown(e){
     const blockDropDown = e.currentTarget.querySelector('.drop-down-wrapper');
-    const containerDropDown = e.currentTarget.querySelector('.drop-down');
     const scrollDiv = e.currentTarget.querySelector('.wrap');
     const target = e.target;
     if (e.target.classList.contains('btn')) {
@@ -150,27 +156,28 @@ function showDropDown(e){
         target.innerHTML = 'Save card';
         target.classList.toggle('btn');
         target.classList.toggle('btn-on');
-        initPlaceUl(e.currentTarget.id, containerDropDown);
+        initPlaceUl(e.currentTarget.id, blockDropDown.querySelector('.drop-down'));
         scrollDiv.scrollTop = scrollDiv.scrollHeight;
+        checkDropDown(true);
     } else if (e.target.classList.contains('btn-on')) {
         blockDropDown.style.display = 'none';
         target.innerHTML = 'Add card';
         target.classList.toggle('btn-on');
         target.classList.toggle('btn');
+        checkDropDown(false);
         checkTasks(dataMock);
     }
 }
 
 function switchCard(array, i, id, target){
-        array[i].issues.some((item,index) =>{
-        if (item.id == id){
-            array[i + 1].issues.push(item);
-            array[i].issues.splice(index, 1);
-            localStorage.setItem('key', JSON.stringify(array));
-            initCard(JSON.parse(localStorage.getItem('key')));
-            target.remove(target);
-        }
-    })
+    const selectedIssue = array[i].issues.find(issue => issue.id == id);
+
+    array[i].issues = array[i].issues.filter(issue => issue !== selectedIssue);
+    array[i + 1].issues = [...array[i + 1].issues, selectedIssue];
+    
+    localStorage.setItem('key', JSON.stringify(array));
+    initCard(JSON.parse(localStorage.getItem('key')));
+    target.remove(target);
 }
 
 function initSwitchedCard(e){
@@ -190,3 +197,12 @@ function initSwitchedCard(e){
 if(localStorage.getItem('key') !== null){
     initCard(JSON.parse(localStorage.getItem('key')));
 }
+
+checkTasks(dataMock);
+backlog.addEventListener('click', showInput);
+inProgress.addEventListener('click', showDropDown);
+inProgress.addEventListener('click', initSwitchedCard);
+finished.addEventListener('click', showDropDown);
+finished.addEventListener('click', initSwitchedCard);
+ready.addEventListener('click', showDropDown);
+ready.addEventListener('click', initSwitchedCard);
