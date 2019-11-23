@@ -16,6 +16,7 @@ const dataMock = JSON.parse(localStorage.getItem('key')) ||
     { title: 'in-progress', issues: [] },
     { title: 'finished', issues: [] }
 ];
+const cash = [{ title: '', issues: [] }];
 
 function checkDropDown (state){
     let array = [backlog, ready, inProgress, finished];
@@ -166,6 +167,35 @@ function showDropDown(e){
         target.classList.toggle('btn');
         checkDropDown(false);
         checkTasks(dataMock);
+        cash[0].title = '';
+        cash[0].issues.length = 0;
+    }
+}
+
+function getBackTask (i, parent, block){
+    let arr = dataMock[i].issues.slice();
+    arr.pop();
+    dataMock[i - 1].issues = [...dataMock[i - 1].issues, cash[0].issues.pop()];
+    dataMock[i].issues = [...arr];
+    localStorage.setItem('key', JSON.stringify(dataMock));
+    initCard(JSON.parse(localStorage.getItem('key')));
+    initPlaceUl(parent, block.querySelector('.drop-down'));
+}
+
+function initBackTask (e){
+    if (cash[0].issues.length === 0) return;
+
+    const blockDropDown = e.currentTarget.querySelector('.drop-down-wrapper');
+    const id = e.currentTarget.id;
+
+    if (e.target.className === 'back-btn'){
+        if(cash[0].title === 'ready'){
+            getBackTask(1, id, blockDropDown);
+        } else if (cash[0].title === 'in-progress'){
+            getBackTask(2, id, blockDropDown);
+        } else if (cash[0].title === 'finished'){
+            getBackTask(3, id, blockDropDown);
+        }
     }
 }
 
@@ -184,6 +214,8 @@ function initSwitchedCard(e){
     if (e.target.className === 'dd-item' || e.target.className === 'dd-link'){
         const target = e.target.className === 'dd-item' ? e.target : e.target.parentNode;
         const id = e.target.id;
+        cash[0].title = e.currentTarget.id;
+        cash[0].issues = [...cash[0].issues, { id: id , name :target.innerText}];
         if(e.currentTarget.id === 'ready'){
             switchCard(dataMock, 0, id, target);
         }else if(e.currentTarget.id === 'in-progress'){
@@ -202,7 +234,10 @@ checkTasks(dataMock);
 backlog.addEventListener('click', showInput);
 inProgress.addEventListener('click', showDropDown);
 inProgress.addEventListener('click', initSwitchedCard);
+inProgress.addEventListener('click', initBackTask);
 finished.addEventListener('click', showDropDown);
 finished.addEventListener('click', initSwitchedCard);
+finished.addEventListener('click', initBackTask);
 ready.addEventListener('click', showDropDown);
 ready.addEventListener('click', initSwitchedCard);
+ready.addEventListener('click', initBackTask);

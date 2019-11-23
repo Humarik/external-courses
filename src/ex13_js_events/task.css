@@ -359,6 +359,19 @@ ul{
     box-sizing: border-box;
     overflow-y: auto;
 }
+.back-btn{
+    background: url(kanban-img/left-arrow.svg) no-repeat;
+    background-position: left;
+    background-size: cover;
+    padding: 0;
+    border: none;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+.back-btn:hover{
+    transform: scale(1.1);
+}
 .drop-down li a{
     color: black;
 }
