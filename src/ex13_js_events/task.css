@@ -360,7 +360,7 @@ ul{
     overflow-y: auto;
 }
 .back-btn{
-    background: url(kanban-img/left-arrow.svg) no-repeat;
+    background: url(kanban-img/back.svg) no-repeat;
     background-position: left;
     background-size: cover;
     padding: 0;
@@ -368,6 +368,9 @@ ul{
     width: 25px;
     height: 25px;
     cursor: pointer;
+}
+.back-btn[disabled]:hover{
+    cursor: default;
 }
 .back-btn:hover{
     transform: scale(1.1);

@@ -78,16 +78,10 @@ function addCard(){
 function showInput(e){
     const target = e.target;
     if (target.classList.contains('btn')) {
-        blockInput.style.display = 'block';
-        target.innerHTML = 'Save card';
-        target.classList.toggle('btn');
-        target.classList.toggle('btn-on');
+        getStyle(blockInput, 'block', target, 'Save card', 'btn', 'btn-on');
         checkDropDown(true);
     } else if (target.classList.contains('btn-on')){
-        blockInput.style.display = 'none';
-        target.innerHTML = 'Add card';
-        target.classList.toggle('btn-on');
-        target.classList.toggle('btn');
+        getStyle(blockInput, 'none', target, 'Add card', 'btn-on', 'btn');
         checkDropDown(false);
         addCard();
     }
@@ -148,53 +142,59 @@ function initPlaceUl(id, containerDropDown){
     }
 }
 
+function getStyle(block, state, button, text, firstClass, secondClass){
+    block.style.display = state;
+    button.innerHTML = text;
+    button.classList.toggle(firstClass);
+    button.classList.toggle(secondClass);
+}
+
 function showDropDown(e){
     const blockDropDown = e.currentTarget.querySelector('.drop-down-wrapper');
     const scrollDiv = e.currentTarget.querySelector('.wrap');
     const target = e.target;
     if (e.target.classList.contains('btn')) {
-        blockDropDown.style.display = 'block';
-        target.innerHTML = 'Save card';
-        target.classList.toggle('btn');
-        target.classList.toggle('btn-on');
+        getStyle(blockDropDown, 'block', target, 'Save card', 'btn', 'btn-on');
         initPlaceUl(e.currentTarget.id, blockDropDown.querySelector('.drop-down'));
         scrollDiv.scrollTop = scrollDiv.scrollHeight;
         checkDropDown(true);
     } else if (e.target.classList.contains('btn-on')) {
-        blockDropDown.style.display = 'none';
-        target.innerHTML = 'Add card';
-        target.classList.toggle('btn-on');
-        target.classList.toggle('btn');
+        getStyle(blockDropDown, 'none', target, 'Add card', 'btn-on', 'btn');
         checkDropDown(false);
         checkTasks(dataMock);
-        cash[0].title = '';
-        cash[0].issues.length = 0;
+        cash[0] = { title: '', issues: [] };
+        checkStateBack(e.currentTarget);
     }
 }
 
-function getBackTask (i, parent, block){
+function checkStateBack (parent){
+    if (cash[0].issues.length === 0) {
+        parent.querySelector('.back-btn').style.background = '';
+        parent.querySelector('.back-btn').disabled = true;
+    }
+}
+
+function getBackTask (i, id, parent){
     let arr = dataMock[i].issues.slice();
     arr.pop();
     dataMock[i - 1].issues = [...dataMock[i - 1].issues, cash[0].issues.pop()];
     dataMock[i].issues = [...arr];
     localStorage.setItem('key', JSON.stringify(dataMock));
     initCard(JSON.parse(localStorage.getItem('key')));
-    initPlaceUl(parent, block.querySelector('.drop-down'));
+    initPlaceUl(id, parent.querySelector('.drop-down-wrapper').querySelector('.drop-down'));
+    checkStateBack(parent);
 }
 
 function initBackTask (e){
     if (cash[0].issues.length === 0) return;
-
-    const blockDropDown = e.currentTarget.querySelector('.drop-down-wrapper');
-    const id = e.currentTarget.id;
-
+    const current = e.currentTarget;
     if (e.target.className === 'back-btn'){
         if(cash[0].title === 'ready'){
-            getBackTask(1, id, blockDropDown);
+            getBackTask(1, current.id, current);
         } else if (cash[0].title === 'in-progress'){
-            getBackTask(2, id, blockDropDown);
+            getBackTask(2, current.id, current);
         } else if (cash[0].title === 'finished'){
-            getBackTask(3, id, blockDropDown);
+            getBackTask(3, current.id, current);
         }
     }
 }
@@ -216,6 +216,8 @@ function initSwitchedCard(e){
         const id = e.target.id;
         cash[0].title = e.currentTarget.id;
         cash[0].issues = [...cash[0].issues, { id: id , name :target.innerText}];
+        e.currentTarget.querySelector('.back-btn').disabled = false;
+        e.currentTarget.querySelector('.back-btn').style.background = 'url' + '(kanban-img/left-arrow.svg)';
         if(e.currentTarget.id === 'ready'){
             switchCard(dataMock, 0, id, target);
         }else if(e.currentTarget.id === 'in-progress'){
