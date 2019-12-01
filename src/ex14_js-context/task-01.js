@@ -38,7 +38,8 @@ const Calculator = {
         return this.result;
     },
     fetchData: function fetchData(callback){
-        return callback.call(this, 500);
+        setTimeout(() => {callback(500)}, 1000);
+        return this;
     }
 }
 module.exports = Calculator;
