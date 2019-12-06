@@ -1,5 +1,5 @@
-import { createBtn } from '../../add-card-btn/createBtn.js'
-import { createDropDown } from '../../dropDown/createDropDown.js'
+import { createBtn } from '../add-card-btn/createBtn.js'
+import { createDropDown } from '../dropDown/createDropDown.js'
 
 function createBox (){
     const titles = ['backlog', 'ready', 'in-progress', 'finished'];

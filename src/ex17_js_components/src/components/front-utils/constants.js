@@ -1,7 +1,7 @@
-import { showInput } from '../components/add-card-btn/addCard.js'
-import { showDropDown } from '../components/dropDown/showDropDown.js'
-import { initSwitchedCard } from '../components/add-card-btn/switchCard.js'
-import { initBackTask } from '../components/dropDown/back-btn/getBackTask.js'
+import { showInput } from '../add-card-btn/addCard.js'
+import { showDropDown } from '../dropDown/showDropDown.js'
+import { initSwitchedCard } from '../add-card-btn/switchCard.js'
+import { initBackTask } from '../dropDown/back-btn/getBackTask.js'
 
 export const backlog = document.querySelector('.backlog');
 export const ready = document.querySelector('.ready');

@@ -1,5 +1,5 @@
-import { ready, inProgress, finished} from '../../front-utils/constants.js';
-import { dataMock } from '../../front-utils/data.js';
+import { ready, inProgress, finished} from '../front-utils/constants.js';
+import { dataMock } from '../front-utils/data.js';
 
 export function checkTasks(array) {
     array.forEach( (item) => {

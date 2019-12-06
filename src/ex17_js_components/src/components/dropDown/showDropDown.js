@@ -1,8 +1,8 @@
-import { getStyle } from '../../front-utils/getStyle.js'
-import { initPlaceUl } from '../../front-utils/initPlaceUl.js'
+import { getStyle } from '../front-utils/getStyle.js'
+import { initPlaceUl } from '../front-utils/initPlaceUl.js'
 import { checkDropDown } from './checkDropDown.js'
 import { checkTasks } from '../add-card-btn/checkTasks.js'
-import { dataMock, cash } from '../../front-utils/data.js'
+import { dataMock, cash } from '../front-utils/data.js'
 import { checkStateBack } from './back-btn/getBackTask.js'
 
 export function showDropDown(e) {

@@ -1,6 +1,6 @@
-import { dataMock, cash } from '../../../front-utils/data.js';
-import { initPlaceUl } from  '../../../front-utils/initPlaceUl.js';
-import { initCard } from '../../../front-utils/initCard.js';
+import { dataMock, cash } from '../../front-utils/data.js';
+import { initPlaceUl } from  '../../front-utils/initPlaceUl.js';
+import { initCard } from '../../front-utils/initCard.js';
 
 export function checkStateBack(parent) {
     if (cash[0].issues.length === 0) {

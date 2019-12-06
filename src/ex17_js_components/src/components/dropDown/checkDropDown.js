@@ -1,4 +1,4 @@
-import { ready, inProgress, finished } from '../../front-utils/constants.js'
+import { ready, inProgress, finished } from '../front-utils/constants.js'
 
 export function checkDropDown(state) {
     const titles = [backlog, ready, inProgress, finished];

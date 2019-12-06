@@ -1,6 +1,6 @@
-import { getStyle } from '../../front-utils/getStyle.js';
-import { initCard } from '../../front-utils/initCard.js';
-import { dataMock } from '../../front-utils/data.js';
+import { getStyle } from '../front-utils/getStyle.js';
+import { initCard } from '../front-utils/initCard.js';
+import { dataMock } from '../front-utils/data.js';
 import { checkTasks } from './checkTasks.js';
 import { checkDropDown } from '../dropDown/checkDropDown.js';
 

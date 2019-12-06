@@ -1,6 +1,5 @@
-import { ready, inProgress, finished } from '../../front-utils/constants.js';
-import { initCard } from '../../front-utils/initCard.js';
-import { dataMock, cash } from '../../front-utils/data.js';
+import { initCard } from '../front-utils/initCard.js';
+import { dataMock, cash } from '../front-utils/data.js';
 
 export function initSwitchedCard(e) {
     if (e.target.className === 'dd-item' || e.target.className === 'dd-link') {
